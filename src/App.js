@@ -10,9 +10,17 @@ class App extends Component {
   }
 
   _renderMovies = () => {
-    const movies = this.state.movies.map((movie, index) => {
+    const movies = this.state.movies.map(movie => {
       console.log(movie);
-      return <Movie title={movie.title} poster={movie.large_cover_image} key={index} />;
+      return (
+        <Movie
+          title={movie.title_english}
+          poster={movie.medium_cover_image}
+          key={movie.id}
+          genres={movie.genres}
+          synopsis={movie.synopsis}
+        />
+      );
     });
     return movies;
   };
@@ -34,7 +42,7 @@ class App extends Component {
   //map함수로 movies배열을movie변수에 넣어줌
   //key를 사용해서 고유의 값을 부여할 수 있음
   render() {
-    return <div className="App">{this.state.movies ? this._renderMovies() : 'Loading'}</div>;
+    return <div className="Movies">{this.state.movies ? this._renderMovies() : 'Loading'}</div>;
   }
 }
 
