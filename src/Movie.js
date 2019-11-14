@@ -16,8 +16,8 @@ class Movie extends Component {
           <MoviePoster poster={this.props.poster} alt={this.props.title} />
         </div>
         <div className="Movie__Columns">
-          <h1>{this.props.title}</h1>
-          <div className="Movie__Genre">
+          <h1 className="Movie__title">{this.props.title}</h1>
+          <div className="Movie__Genres">
             {this.props.genres.map((genre, index) => (
               <MovieGenre genre={genre} key={index} />
             ))}

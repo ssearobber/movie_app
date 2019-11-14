@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import Movie from './Movie';
+import axios from 'axios';
 
 class App extends Component {
-  state = {};
+  state = { times: '' };
 
   componentDidMount() {
     this._getMoves();
@@ -32,6 +33,24 @@ class App extends Component {
     });
   };
 
+  // __sendData = () => {
+  //   console.log('button clicked');
+  //   let data3 = JSON.stringify({
+  //     times: this.state.times,
+  //     name: 'Unavailable',
+  //   });
+
+  //   console.log(data3);
+
+  //   axios
+  //     .post('http://554d0c5e.ngrok.io/calendarApi/startTimeSave', data3, {
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //       },
+  //     })
+  //     .then(console.log('time send complete'))
+  //     .catch(error => console.error(error));
+  // };
   _callApi = () => {
     return fetch('https://yts.lt/api/v2/list_movies.json?sort_by=rating')
       .then(response => response.json())
@@ -42,7 +61,18 @@ class App extends Component {
   //map함수로 movies배열을movie변수에 넣어줌
   //key를 사용해서 고유의 값을 부여할 수 있음
   render() {
-    return <div className="Movies">{this.state.movies ? this._renderMovies() : 'Loading'}</div>;
+    return (
+      <div className="Movies">
+        {this.state.movies ? this._renderMovies() : 'Loading'}
+
+        {/* <button
+          onClick={() => {
+            this.setState({ times: '8888' });
+            this.__sendData();
+          }}
+        ></button> */}
+      </div>
+    );
   }
 }
 

@@ -11,6 +11,13 @@ body {
   height: 100%;
 }
 
+/* @media (min-width: 100px) {
+  body {
+    background-color: red;
+  }
+} */
+
+
 html,
 body,
 #root,
@@ -29,12 +36,11 @@ body,
   font-weight: 300;
 }
 
-.movies {
+.Movies {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   flex-wrap: wrap;
-  padding: 50px;
   padding-top: 70px;
-  width: 80%;
+  width: 90%;
 }
